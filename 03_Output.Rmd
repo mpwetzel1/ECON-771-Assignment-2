@@ -1,0 +1,51 @@
+---
+title: "04_Format Output"
+author: "Martha Wetzel"
+date: "2022-09-22"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+pacman::p_load(tidyverse, ggplot2, dplyr, lubridate, kableExtra, modelsummary, 
+               fixest, flextable, stringr, rmarkdown)
+load("../Output/output.Rdata.")
+
+
+set_flextable_defaults(
+  font.family = "serif",
+  big.mark = ",",
+  theme_fun = "theme_booktabs"
+)
+
+init_flextable_defaults()
+```
+
+
+```{r q2, echo=FALSE}
+plot(q2_plot)
+```
+##Question 3
+```{r q3, echo =FALSE}
+
+
+bold(q3_twfe, part="header")
+```
+
+##Question 5
+```{r q5, echo =FALSE}
+
+theme_booktabs(align(
+  q5_all,
+  i = NULL,
+  j = NULL,
+  align ="center",
+  part = "header"
+), bold_header = TRUE)
+
+```
+
+
+
+
